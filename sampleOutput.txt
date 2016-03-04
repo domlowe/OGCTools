@@ -1,0 +1,475 @@
+ Requirements Class
+  
+
+
+
+  http://www.opengis.net/spec/waterml/part2/1.0/req/uml-conversions
+  
+
+
+
+ Dependency 
+
+
+ http://www.opengis.net/spec/waterml/2.0/req/uml-monitoring-point
+
+
+
+
+ Dependency 
+
+
+ urn:iso:dis:iso:19156:clause:9
+
+
+
+
+ Requirement
+
+
+ /datums-for-stage
+ A ConversionGroup that converts a level or stage property
+  shall include a definition of the vertical datum used.
+
+
+
+
+ Requirement
+
+
+ /multiple-conversion-types
+ Conversions shall support conversion between any properties,
+  not just stage-flow conversions.
+
+
+
+
+ Requirement
+
+
+ /start-periods
+ Within a ConversionGroup, each ConversionPeriod shall express
+  the start date of a period of application for a Conversion. The end of the
+  applicable period may be specified using the periodEnd. If no end is
+  specified for the ConversionPeriod, the conversion applies to the start of
+  the next applicable period, or indefinitely if no other ConversionPeriods
+  exist in the ConversionGroup. 
+
+
+
+
+ Requirement
+
+
+ /conversion-reuse
+ Different ConversionPeriods shall be able to refer to the same
+  Conversion. 
+
+
+
+
+ Requirement
+
+
+ /conversion-gaps
+ To express a gap in groups of Conversions, a ConversionPeriod
+  with a periodEnd shall be used, followed by a ConversionPeriod with
+  periodStart to express the end of the gap. 
+
+
+
+
+ Requirement
+
+
+ /linear-interpolation
+ A ConversionTable shall contain sufficient input/output values
+  to allow linear interpolation between points. The data producer determines
+  the resolution at which the values are created.
+
+
+
+
+ Requirement
+
+
+ /equation
+ A Conversion shall support specification of the source
+  equation of the conversion table. This shall be done using the
+  sourceDefinition property to  reference
+  a ConversionEquation. The ConversionEquation supports a text-based equation
+  description. There is no equation formatting specified. 
+
+
+
+
+ Requirement
+
+
+ /transformation
+ The definition of a Conversion shall be sufficient to allow
+  calculation of derived values, without the need to specify the way the
+  transformation should be run.
+
+
+
+
+ Requirement
+
+
+ /source-system
+ A Conversion definition shall support additional information that
+  describes how the source system stored the conversion table. This shall be
+  done using the sourceDefinition property. 
+
+
+
+
+ Requirement
+
+
+ /keys
+ A ConversionGroup shall be uniquely identified by, at a
+  minimum, the Monitoring Point, inputProperty and outputProperty. If
+  additional key entries are required, these can be expressed using the 'name'
+  property.
+
+
+
+
+ Requirement
+
+
+ /link-to-gaugings
+ A Conversion shall allow referencing to the gauging
+  observations that were used in construction of the conversion relationship
+  through the ConversionMetadata type. This allows the following to be defined:
+·      Gauging observations that were used and taken
+  in the period of application; 
+·      Gauging observations that were not used in
+  the period of application; 
+·      Gauging observation that were used but taken
+  outside the application period, e.g. a high flow rating conversion. 
+
+
+
+
+ Requirement
+
+
+ /phasing
+ A ConversionGroup shall support the definition of a phased
+  changed between Conversions. Each ConversionPeriod shall specify the period
+  over which the applicable Conversion should be phased from the previous
+  Conversion.
+
+
+
+
+ Requirement
+
+
+ /table-point-quality
+ A ConversionTable shall support expression of the quality of
+  each point within the table. A default shall be provided for the whole table,
+  unless overridden by individual points. To override the default, the input
+  and output values provide a SWE:Quantity type that allows a quality to be
+  specified against a quantity.
+
+
+
+
+ Requirement
+
+
+ /review-process-metadata
+ A Conversion shall contain metadata properties to support
+  definition of whether the conversion is under review, approved or in
+  development.
+
+
+
+
+ Requirement
+
+
+ /range-group
+ A Conversion shall contain an associated with a RangeGroup,
+  which describes metadata that varies according to the inputProperty.Requirements Class
+  
+
+
+
+  http://www.opengis.net/spec/waterml/part2/1.0/req/uml-range-values
+  
+
+
+
+ Requirement
+
+
+ /range-values
+ A range group shall contain multiple RangeTables, which define
+  metadata that changes with the input property. 
+
+
+
+
+ Requirement
+
+
+ /start-end-value
+ Range tables shall contain a start and end value for which the
+  specified metadata is valid.Requirements Class
+  
+
+
+
+  http://www.opengis.net/spec/waterml/part2/1.0/req/uml-gaugings
+  
+
+
+
+ Requirement
+
+
+ /observed-property
+ The observed property of the OM_Observation type shall be a composite
+  property that includes both the inputProperty and outputProperty. E.g. a
+  stage to discharge definition. 
+
+
+
+
+ Requirement
+
+
+ /result-type
+ A GaugingObservation shall have a result property (from
+  OM_Observation) that contains two scalar values: the observed inputProperty
+  and outputProperty.
+
+
+
+
+ Requirement
+
+
+ /feature-of-interest
+ The feature of interest of a Gauging Observation shall be a
+  MonitoringPoint (from WaterML2.0 part 1).Requirements Class
+  
+
+
+
+  http://www.opengis.net/spec/waterml/part2/1.0/req/uml-section-observations
+  
+
+
+
+Requirement
+
+
+ /geometry-observation
+A
+  section observation shall be an OM_GeometryObservation with a result type of
+  that is a sub-class of GM_Object. 
+
+
+
+
+ Requirement
+
+
+ /observed-property
+The
+  observedProperty of the OM_GeometryObservation shall refer to the type of
+  section that is being observed (e.g. river cross-section) using a controlled
+  vocabulary.Requirements
+  Class
+  
+
+
+
+   http://www.opengis.net/spec/req/waterml/part2/1.0/req/xml-rules
+  
+
+
+
+ Dependency 
+
+
+ http://www.opengis.net/spec/waterml/2.0/req/xsd-xml-rules
+
+
+
+
+ Requirement
+
+
+ /part1-rules
+The XML encodings shall conform to the
+  XML encoding rules specified in WaterML2.0 part 1.Requirements Class
+  
+
+
+
+  href="http://www.opengis.net/spec/req/waterml/part2/1.0/req/xml-collection">http://www.opengis.net/spec/req/waterml/part2/1.0/req/xml-collectionRequirements ClassRequirements Class
+  
+
+
+
+  http://www.opengis.net/spec/req/waterml/part2/1.0/req/xml-range-values
+  
+
+
+
+ Requirement
+
+
+ /valid
+The XML instance document shall be
+  valid according to the XML grammar specified in http://schemas.opengis.net/waterml/part2/1.0/rangeValues.xsd.
+
+
+
+
+ Requirement
+
+
+ /range-definition
+The rangeDefinition xlink:href
+  attribute shall use an HTTP URL that links to a vocabulary term indicating
+  the type of range value that is being encoded. E.g. ‘percent of time height
+  exceeded’ or ‘flood levels’.Requirements Class
+  
+
+
+
+  http://www.opengis.net/spec/req/waterml/part2/1.0/req/xml-gaugings
+  
+
+
+
+ Dependency 
+
+
+ http://www.opengis.net/spec/waterml/2.0/req/xsd-feature-of-interest-monitoring-point
+
+
+
+
+ Requirement
+
+
+ /observation-type
+A Gauging Observation shall be encoded
+  using the OM_Observation type, with restrictions defined in this requirements
+  class. 
+
+
+
+
+ Requirement
+
+
+ /result
+The ‘result’ property of the
+  OM_Observation element shall be a ‘Gauging’ type.  
+
+
+
+
+ Requirement
+
+
+ /observed-property
+ The ‘observedProperty’ property of the OM_Observation element shall be
+  reference a vocabulary term that defines both the input and the
+  outputProperties that are being observed. 
+
+
+
+
+ Requirement
+
+
+ /feature-of-interest
+ The ‘featureOfInterest’ property of the OM_Observation element shall
+  be reference a MonitoringPoint (WaterML2.0 part 1) or reference one using
+  xlink. 
+
+
+
+
+ Requirement
+
+
+ /observation-conditions
+ The conditionsParameter property shall be encoded using the
+  om:parameter property of OM_Observation. The ‘name’ element (of
+  om:NamedValue) shall have an xlink:href value of ‘http://www.opengis.net/def/waterml/part2/1.0/gauging-conditions’, with the ‘value’ element containing the ObservationConditions value
+  or a reference to one. 
+
+
+
+
+ Requirement
+
+
+ /observation-metadata
+ The metadataParameter property shall be encoded using the om:parameter
+  property of OM_Observation. The ‘name’ element (of om:NamedValue) shall have
+  an xlink:href value of ‘http://www.opengis.net/def/waterml/part2/1.0/gauging-metadata’, with the ‘value’ element containing the ObservationMetadata value or
+  a reference to one.
+
+
+
+
+ Requirement
+
+
+ /stream-gauging-metadata
+ The streamGaugingMetadataParameter type shall be encoded using the
+  om:parameter property of OM_Observation. The ‘name’ element (of
+  om:NamedValue) shall have an xlink:href value of ‘http://www.opengis.net/def/waterml/part2/1.0/stream-gauging-metadata’, with the ‘value’ element containing the StreamGaugingMetadatad value
+  or a reference to one.Requirements Class
+  
+
+
+
+  http://www.opengis.net/spec/req/waterml/part2/1.0/req/xml-section-observation
+  
+
+
+
+ Requirement
+
+
+ /observation-type
+A SectionObservation shall be encoded
+  using the OM_Observation type, with restrictions defined in this requirements
+  class. 
+
+
+
+
+ Requirement
+
+
+ /observed-property
+A observedProperty of the
+  OM_Observation shall indicate the type of cross-section observed using a term
+  from the vocabulary at: ‘http://www.opengis.net/def/waterml/part2/1.0/SectionPropertyCode’
+
+
+
+
+ Requirement
+
+
+ /observation-metadata
+The parameterMetadata shall be encoded
+  using the om:parameter property of OM_Observation, with ‘name’ element (of
+  om:NamedValue) having an xlink:href value of ‘http://www.opengis.net/def/waterml/part2/1.0/section-metadata’.  The ‘value’ element shall
+  contain the SectionObservationMetadata type. 
