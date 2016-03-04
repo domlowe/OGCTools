@@ -5,4 +5,4 @@ extractRequirements.py extracts the requirement classes from OGC specs and write
 
 Usage:
 
-python extractRequirements.py http://path.to.html outputText.txt0
+python extractRequirements.py http://path.to.html outputText.txt
